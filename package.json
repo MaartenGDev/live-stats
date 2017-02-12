@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "npm-run-all --parallel watch:*",
-    "watch:sass": "node-sass src/sass/app.sass public/css/app.css --watch",
+    "deploy": "npm-run-all --parallel prod:*",
+    "watch:sass": "node-sass src/assets/sass/app.sass public/css/app.css --watch",
+    "prod:sass": "node-sass src/assets/sass/app.sass public/css/app.css --output-style compressed",
     "start": "node ./bin/www"
   },
   "dependencies": {
