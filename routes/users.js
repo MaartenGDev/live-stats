@@ -8,27 +8,28 @@ const fetch = require('node-fetch');
 const token = process.env.API_KEY;
 
 const hypixel = new Hypixel(token, fetch);
-const transformer = new HypixelTransformer();
+const transformer = new HypixelTransformer(hypixel);
 
 router.get('/:userId', (req, res, next) => {
-    const { userId } = req.params;
+    const {userId} = req.params;
 
     hypixel.getPlayerByUuid(userId)
         .then(player => {
-            const customPlayer = transformer.player(player);
 
-            res.send(customPlayer)
+            transformer.player(player)
+                .then(transformedPlayer => res.send(transformedPlayer));
+
         });
 });
 
 router.get('/:userId/game', function (req, res, next) {
-    const { userId } = req.params;
+    const {userId} = req.params;
 
     hypixel.getSession(userId)
         .then(session => {
-            const customSession = transformer.session(session);
+           transformer.session(session)
+               .then(transformedSession => res.send(transformedSession));
 
-            res.send(customSession)
         })
 });
 
