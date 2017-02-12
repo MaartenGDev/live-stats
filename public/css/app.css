@@ -1,1 +1,6 @@
-body{background-color:red}p{color:blue}
+.mdl-card {
+  width: 100%; }
+  .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url("/images/mountain.jpg") center/cover; }

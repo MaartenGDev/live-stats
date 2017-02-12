@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/api/v1/users', users);
 
 app.use((req, res, next) => {
   var err = new Error('Not Found');

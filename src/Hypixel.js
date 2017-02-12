@@ -1,24 +1,36 @@
+class Hypixel {
+    constructor(token, http){
+        this.token = token;
+        this.http = http;
+    }
+    getPlayerByUuid(uuid) {
+        return this._sendRequest(`player?uuid=${uuid}`);
+    }
 
-const fetch = require('node-fetch');
+    getSession(uuid){
+        return this._sendRequest(`session?uuid=${uuid}`);
+    }
+    getKeyInfo() {
+        return this._sendRequest(`key`);
+    }
 
-const apiKey = process.env.API_KEY;
-const playerUuid = 'c0e055a5d4734e7590a76cdad39fd05e';
+    _buildQuery(uri){
+        return `https://api.hypixel.net/${uri}&key=${this.token}`;
+    }
 
-const options = {
-    uri: 'https://api.hypixel.net/session',
-    qs: {
-        key: apiKey,
-        uuid: playerUuid
-    },
-    json: true
-};
-const sessionUri = `http://api.hypixel.net/session?uuid=${playerUuid}&key=${apiKey}`;
-const playerUri = `http://api.hypixel.net/player?uuid=${playerUuid}&key=${apiKey}`;
+    _sendRequest(uri){
+        return new Promise((resolve, reject) => {
+            this.http(this._buildQuery(uri))
+                .then(res => res.json())
+                .then(body => resolve(body))
+                .catch(err => {
+                    console.log(err);
+                    console.log(this._buildQuery(uri));
+                    reject(err);
+                });
+        });
+    }
 
-fetch(playerUri)
-  .then(res => res.json())
-  .then(body => {
-    console.log(body["player"]["stats"]["Walls"]);
-  });
+}
 
-  console.log(playerUri);
+module.exports = Hypixel;

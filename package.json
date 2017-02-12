@@ -6,7 +6,7 @@
     "dev": "npm-run-all --parallel watch:*",
     "deploy": "npm-run-all --parallel prod:*",
     "watch:sass": "node-sass src/assets/sass/app.sass public/css/app.css --watch",
-    "watch:react": "webpack",
+    "watch:react": "webpack --watch",
     "prod:sass": "node-sass src/assets/sass/app.sass public/css/app.css --output-style compressed",
     "prod:webpack": "webpack -p",
     "start": "node ./bin/www"
