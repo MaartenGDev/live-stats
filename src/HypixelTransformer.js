@@ -17,10 +17,9 @@ class HypixelTransformer {
         return new Promise((resolve, reject) => {
             Promise.all(players)
                 .then(players => {
-                    console.log(players);
                     const allPlayers = players.map(player => this.player(player))
 
-                    resolve( {
+                    resolve({
                         gameType: session.gameType || 'Default',
                         server: session.server || 'Lobby',
                         players: allPlayers
