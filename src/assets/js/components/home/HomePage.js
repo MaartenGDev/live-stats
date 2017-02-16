@@ -15,21 +15,33 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const userStats = this.state.users.map(user => {
+        let counter = 0;
 
-            const gameStats = user.stats.games.walls;
+        const users = this.state.users.sort((firstUser, secondUser) => {
+            const firstPackagesCount = firstUser.stats.games.walls.packages.length;
+            const secondPackagesCount = secondUser.stats.games.walls.packages.length;
 
-            const hasPackages = gameStats.hasOwnProperty("packages");
+            if (firstPackagesCount == secondPackagesCount) {
+                return 0;
+            }
 
-            let packages = hasPackages ? gameStats.packages : [];
+            return firstPackagesCount < secondPackagesCount ? -1 : 1;
+        });
+
+        const userStats = users.map(user => {
+            let packages = user.stats.games.walls.packages;
+
+            let packageCounter = 0;
 
             packages = packages.map(skill => {
-                return <span className="mdl-chip">
+                packageCounter++;
+                return <span className="mdl-chip" key={packageCounter}>
                             <span className="mdl-chip__text">{skill}</span>
                         </span>
             })
 
-            return <div className="mdl-cell mdl-cell--3-col" key={user.uuid}>
+            counter++;
+            return <div className="mdl-cell mdl-cell--3-col" key={counter}>
                 <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                     <div className="mdl-card__title">
                         <h2 className="mdl-card__title-text">{user.name}</h2>
