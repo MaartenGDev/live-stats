@@ -25,7 +25,7 @@ class HomePage extends React.Component {
                 return 0;
             }
 
-            return firstPackagesCount < secondPackagesCount ? -1 : 1;
+            return firstPackagesCount < secondPackagesCount ? 1 : -1;
         });
 
         const userStats = users.map(user => {
