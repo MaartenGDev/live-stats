@@ -31,9 +31,21 @@ class HypixelTransformer {
     player(response) {
         const player = response['player'];
 
-        return {
-            name: player['displayname']
+
+        const stats = {
+            name: player.displayname,
+            uuid: player.uuid,
+            level: player.networkLevel,
+            stats: {
+                games: {
+                    walls: player['stats']['Walls'] || {}
+                }
+            }
         }
+
+        stats.stats.games.walls.packages = stats.stats.games.walls.hasOwnProperty("packages") ? stats.stats.games.walls.packages : [];
+
+        return stats;
     }
 }
 module.exports = HypixelTransformer;

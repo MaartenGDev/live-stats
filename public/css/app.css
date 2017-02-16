@@ -4,3 +4,6 @@
     color: #fff;
     height: 176px;
     background: url("/images/mountain.jpg") center/cover; }
+  .mdl-card__menu-text {
+    color: white;
+    font-weight: bold; }
