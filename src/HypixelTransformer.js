@@ -19,33 +19,36 @@ class HypixelTransformer {
                 .then(players => {
                     const allPlayers = players.map(player => this.player(player))
 
-                    resolve({
-                        gameType: session.gameType || 'Default',
-                        server: session.server || 'Lobby',
-                        players: allPlayers
-                    });
+                    Promise.all(allPlayers).then(userStats => {
+                        resolve({
+                            gameType: session.gameType || 'Default',
+                            server: session.server || 'Lobby',
+                            players: userStats
+                        });
+                    })
+
                 });
         });
     }
 
-    player(response) {
-        const player = response['player'];
-
-
+    player(player) {
         const stats = {
             name: player.displayname,
             uuid: player.uuid,
             level: player.networkLevel,
             stats: {
                 games: {
-                    walls: player['stats']['Walls'] || {}
+                    walls: player['stats']['Walls'] || {},
+                    skywars: player['stats']['SkyWars'] || {}
                 }
             }
         }
 
         stats.stats.games.walls.packages = stats.stats.games.walls.hasOwnProperty("packages") ? stats.stats.games.walls.packages : [];
 
-        return stats;
+        return new Promise(res=> {
+            res(stats)
+        });
     }
 }
 module.exports = HypixelTransformer;
