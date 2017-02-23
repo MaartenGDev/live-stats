@@ -19,9 +19,12 @@ class HypixelTransformer {
                 .then(players => {
                     const allPlayers = players.map(player => this.player(player))
 
+                    const gameType = session.gameType || 'Lobby';
+
                     Promise.all(allPlayers).then(userStats => {
                         resolve({
-                            gameType: session.gameType || 'Default',
+                            gameType: gameType,
+                            game_key: this.getGameKey(gameType),
                             server: session.server || 'Lobby',
                             players: userStats
                         });
@@ -39,7 +42,8 @@ class HypixelTransformer {
             stats: {
                 games: {
                     walls: player['stats']['Walls'] || {},
-                    skywars: player['stats']['SkyWars'] || {}
+                    sky_wars: player['stats']['SkyWars'] || {},
+                    mega_walls: player['stats']['Walls3'] || {}
                 }
             }
         }
@@ -49,6 +53,14 @@ class HypixelTransformer {
         return new Promise(res=> {
             res(stats)
         });
+    }
+
+    getGameKey(gameType){
+        const gameTypes = {
+            WALLS3: "mega_walls"
+        }
+
+        return gameTypes[gameType];
     }
 }
 module.exports = HypixelTransformer;
