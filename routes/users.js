@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Hypixel = require('./../src/Hypixel');
 const HypixelTransformer = require('./../src/HypixelTransformer');
-const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient
 
 var url = 'mongodb://localhost:27017/gameCache';

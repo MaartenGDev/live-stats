@@ -38,7 +38,7 @@ class HypixelTransformer {
         const stats = {
             name: player.displayname,
             uuid: player.uuid,
-            level: player.networkLevel,
+            level: player.networkLevel || 0,
             stats: {
                 games: {
                     walls: player['stats']['Walls'] || {},
@@ -57,7 +57,9 @@ class HypixelTransformer {
 
     getGameKey(gameType){
         const gameTypes = {
-            WALLS3: "mega_walls"
+            WALLS3: "mega_walls",
+            WALLS: "walls",
+            SKYWARS: "sky_wars"
         }
 
         return gameTypes[gameType];

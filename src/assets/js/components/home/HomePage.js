@@ -48,8 +48,6 @@ class HomePage extends React.Component {
     }
 
     render() {
-        let counter = 0;
-
         const users = this.state.users.sort((firstUser, secondUser) => {
             const firstPackagesCount = firstUser.stats.games.walls.packages.length;
             const secondPackagesCount = secondUser.stats.games.walls.packages.length;
