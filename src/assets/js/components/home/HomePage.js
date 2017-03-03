@@ -34,14 +34,12 @@ class HomePage extends React.Component {
             const statsLabels = items.map((statKey, index) => {
                 const value = game.hasOwnProperty(statKey) ? game[statKey] : 0;
 
-                return <li className="mdl-list__item" key={index}>
-                    <span className="mdl-list__item-primary-content">
-                        {statKey} - {value}
-                    </span>
+                return <li className="card__skill" key={index}>
+                    <span className="card__skill card__skill--title">{value}</span><span> {statKey}</span>
                 </li>
             });
 
-            return <ul className="demo-list-item mdl-list">
+            return <ul className="card__skills">
                 {statsLabels}
             </ul>
         }
@@ -68,10 +66,11 @@ class HomePage extends React.Component {
             return <section className="col col--3">
                 <section className="card" key={index}>
                     <section className="card__image">
-                        <img src=""/>
+                        <img src="/images/avatars/Holy_Sheep.png"/>
                     </section>
-                    <section className="card__title">
-                        <h2 className="mdl-card__title-text">{user.name}</h2>
+                    <section className="card__header">
+                        <h2 className="card__title card__title--primary">{user.name}</h2>
+                        <p className="card__title card__title--secondary">Level 69</p>
                     </section>
                     <section className="card__content">
                         {content}

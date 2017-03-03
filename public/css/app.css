@@ -10,8 +10,8 @@ body {
   padding: 8px; }
 
 .col--3 {
-  width: calc(25% - 16px);
-  margin: 8px; }
+  width: calc(25% - 58px);
+  margin: 29px; }
 
 .nav {
   display: inline-block; }
@@ -39,4 +39,30 @@ body {
   display: inline-block;
   border-radius: 2px;
   width: calc(100% - 16px);
-  padding: 8px; }
+  padding: 8px;
+  position: relative; }
+  .card__image {
+    position: absolute;
+    left: -30px;
+    top: -30px; }
+  .card__header {
+    margin-left: 70px; }
+  .card__title--primary {
+    margin: 0;
+    padding: 0;
+    color: #3F51B5;
+    font-size: 17px;
+    font-weight: 700; }
+  .card__title--secondary {
+    color: #212121;
+    font-size: 17px;
+    margin-top: 3px; }
+  .card__skills {
+    margin-top: 30px;
+    list-style: square inside url("data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==");
+    padding: 0; }
+  .card__skill {
+    margin-top: 5px; }
+    .card__skill--title {
+      color: #3F51B5;
+      font-weight: 700; }
