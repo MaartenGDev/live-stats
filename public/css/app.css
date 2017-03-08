@@ -42,9 +42,12 @@ body {
   padding: 8px;
   position: relative; }
   .card__image {
+    height: 70px;
+    width: 70px; }
+  .card__avatar {
     position: absolute;
-    left: -30px;
-    top: -30px; }
+    left: -20px;
+    top: -20px; }
   .card__header {
     margin-left: 70px; }
   .card__title--primary {

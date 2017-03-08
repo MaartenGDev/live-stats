@@ -65,8 +65,8 @@ class HomePage extends React.Component {
 
             return <section className="col col--3">
                 <section className="card" key={index}>
-                    <section className="card__image">
-                        <img src="/images/avatars/Holy_Sheep.png"/>
+                    <section className="card__avatar">
+                        <img className="card__image" src="/images/avatars/Holy_Sheep.png"/>
                     </section>
                     <section className="card__header">
                         <h2 className="card__title card__title--primary">{user.name}</h2>
