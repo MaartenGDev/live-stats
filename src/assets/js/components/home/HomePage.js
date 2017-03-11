@@ -63,10 +63,10 @@ class HomePage extends React.Component {
 
             const content = this.getCardContent(game.game_key, user);
 
-            return <section className="col col--3">
+            return <section className="col col--2">
                 <section className="card" key={index}>
                     <section className="card__avatar">
-                        <img className="card__image" src="/images/avatars/Holy_Sheep.png"/>
+                        <img className="card__image" src={"/api/v1/avatars/" + user.uuid}/>
                     </section>
                     <section className="card__header">
                         <h2 className="card__title card__title--primary">{user.name}</h2>

@@ -9,8 +9,8 @@ body {
   align-items: stretch;
   padding: 8px; }
 
-.col--3 {
-  width: calc(25% - 58px);
+.col--2 {
+  width: calc(20% - 58px);
   margin: 29px; }
 
 .nav {
