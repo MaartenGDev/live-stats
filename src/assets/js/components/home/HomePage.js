@@ -1,4 +1,7 @@
 import React from "react";
+import ProfileCard from "./ProfileCard";
+
+import PlayerSorter from "./../../../../PlayerSorter";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -15,9 +18,6 @@ class HomePage extends React.Component {
     }
 
     getCardContent(gameType, user) {
-        console.log(gameType);
-        console.log(user.stats.games[gameType]);
-
         const game = user.stats.games[gameType];
 
         if (gameType == "walls") {
@@ -32,7 +32,7 @@ class HomePage extends React.Component {
             const items = ['wins', 'kills', 'deaths'];
 
             const statsLabels = items.map((statKey, index) => {
-                const value = game.hasOwnProperty(statKey) ? game[statKey] : 0;
+                const value = game[statKey] || 0;
 
                 return <li className="card__skill" key={index}>
                     <span className="card__skill card__skill--title">{value}</span><span> {statKey}</span>
@@ -46,42 +46,25 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const users = this.state.users.sort((firstUser, secondUser) => {
-            const firstPackagesCount = firstUser.stats.games.walls.packages.length;
-            const secondPackagesCount = secondUser.stats.games.walls.packages.length;
-
-            if (firstPackagesCount == secondPackagesCount) {
-                return 0;
-            }
-
-            return firstPackagesCount < secondPackagesCount ? 1 : -1;
-        });
-
         const game = this.state.game;
+        const gameKey = game.game_key;
+
+        const userOrder = gameKey == 'walls' ? PlayerSorter.sortByPackages : PlayerSorter.sortByLevel;
+
+        const users = this.state.users.sort(userOrder);
 
         const userStats = users.map((user, index) => {
 
-            const content = this.getCardContent(game.game_key, user);
+            const content = this.getCardContent(gameKey, user);
 
-            return <section className="col col--2">
-                <section className="card" key={index}>
-                    <section className="card__avatar">
-                        <img className="card__image" src={"/api/v1/avatars/" + user.uuid}/>
-                        <section className="card__overlay"></section>
-                    </section>
-                    <section className="card__header">
-                        <h2 className="card__title card__title--primary">{user.name}</h2>
-                        <p className="card__title card__title--secondary">Level {user.level}</p>
-                    </section>
-                    <section className="card__content">
-                        {content}
-                    </section>
-                    <section className="card__actions">
-                        <a className="btn btn--material">
-                            PROFILE
-                        </a>
-                    </section>
-                </section>
+            return <section className="col col--2" key={index}>
+                <ProfileCard
+                    image={"/api/v1/avatars/" + user.uuid}
+                    username={user.name}
+                    level={user.level}
+                    content={content}
+                    actionTitle="PROFILE"
+                />
             </section>
         });
 

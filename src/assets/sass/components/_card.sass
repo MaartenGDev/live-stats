@@ -6,30 +6,6 @@
   padding: 8px
   position: relative
 
-  &__overlay
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 1
-    background-color: rgba(0,0,0, 0.1)
-    height: 100%
-    width: 100%
-
-  &__image
-    height: 100%
-    width: 100%
-
-  &__avatar
-    position: absolute
-    left: -20px
-    top: -20px
-    height: 70px
-    width: 70px
-    @include box_shadow(2)
-
-  &__header
-    margin-left: 70px
-
   &__title
     &--primary
       margin: 0
@@ -43,8 +19,33 @@
       font-size: 17px
       margin-top: 3px
 
+  &__avatar
+    position: absolute
+    left: -20px
+    top: -20px
+    height: 70px
+    width: 70px
+    @include box_shadow(2)
+
+  &__image
+    height: 100%
+    width: 100%
+
+  &__overlay
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    background-color: rgba(0,0,0, 0.1)
+    height: 100%
+    width: 100%
+
+  &__header
+    margin-left: 70px
+    overflow: hidden
+
   &__skills
-      margin-top: 30px
+      margin-top: 13px
       list-style: square inside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==')
       padding: 0
 
@@ -55,3 +56,5 @@
       color: $primary-color
       font-weight: 700
 
+  &__actions
+    margin-top: 25px

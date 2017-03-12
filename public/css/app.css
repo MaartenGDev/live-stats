@@ -41,26 +41,6 @@ body {
   width: calc(100% - 16px);
   padding: 8px;
   position: relative; }
-  .card__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.1);
-    height: 100%;
-    width: 100%; }
-  .card__image {
-    height: 100%;
-    width: 100%; }
-  .card__avatar {
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    height: 70px;
-    width: 70px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-  .card__header {
-    margin-left: 70px; }
   .card__title--primary {
     margin: 0;
     padding: 0;
@@ -71,8 +51,29 @@ body {
     color: #212121;
     font-size: 17px;
     margin-top: 3px; }
+  .card__avatar {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .card__image {
+    height: 100%;
+    width: 100%; }
+  .card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%; }
+  .card__header {
+    margin-left: 70px;
+    overflow: hidden; }
   .card__skills {
-    margin-top: 30px;
+    margin-top: 13px;
     list-style: square inside url("data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==");
     padding: 0; }
   .card__skill {
@@ -80,11 +81,12 @@ body {
     .card__skill--title {
       color: #3F51B5;
       font-weight: 700; }
+  .card__actions {
+    margin-top: 25px; }
 
 .btn {
   text-decoration: none;
   display: inline-block; }
   .btn--material {
     text-transform: uppercase;
-    color: #448AFF;
-    font-weight: 700; }
+    color: #212121; }
