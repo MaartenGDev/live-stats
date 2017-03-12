@@ -71,14 +71,14 @@ class HomePage extends React.Component {
                     </section>
                     <section className="card__header">
                         <h2 className="card__title card__title--primary">{user.name}</h2>
-                        <p className="card__title card__title--secondary">Level 69</p>
+                        <p className="card__title card__title--secondary">Level {user.level}</p>
                     </section>
                     <section className="card__content">
                         {content}
                     </section>
                     <section className="card__actions">
-                        <a className="btn">
-                            Getting Started
+                        <a className="btn btn--material">
+                            PROFILE
                         </a>
                     </section>
                 </section>

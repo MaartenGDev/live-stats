@@ -80,3 +80,11 @@ body {
     .card__skill--title {
       color: #3F51B5;
       font-weight: 700; }
+
+.btn {
+  text-decoration: none;
+  display: inline-block; }
+  .btn--material {
+    text-transform: uppercase;
+    color: #448AFF;
+    font-weight: 700; }

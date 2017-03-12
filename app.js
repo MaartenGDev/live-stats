@@ -10,7 +10,7 @@ const users = require('./routes/users');
 const avatars = require('./routes/avatars')
 
 const app = express();
-
+app.disable('x-powered-by');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 

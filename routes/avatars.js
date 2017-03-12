@@ -67,7 +67,7 @@ const storePlayerHead = (player, storePath) => {
     return new Promise(res => {
         gm(player)
             .crop(8, 8, 8, 8)
-            .scale(90, 90)
+            .scale(70, 70)
             .write(storePath, err => {
                 if (err) throw err;
 
