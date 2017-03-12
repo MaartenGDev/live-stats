@@ -4,10 +4,9 @@ const Hypixel = require('./../src/Hypixel');
 const HypixelTransformer = require('./../src/HypixelTransformer');
 const MongoClient = require('mongodb').MongoClient
 
-var url = 'mongodb://localhost:27017/gameCache';
+const url = 'mongodb://localhost:27017/gameCache';
 
 const cache = MongoClient.connect(url)
-
 
 const fetch = require('node-fetch');
 

@@ -6,14 +6,26 @@
   padding: 8px
   position: relative
 
+  &__overlay
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    background-color: rgba(0,0,0, 0.1)
+    height: 100%
+    width: 100%
+
   &__image
-    height: 70px
-    width: 70px
+    height: 100%
+    width: 100%
 
   &__avatar
     position: absolute
     left: -20px
     top: -20px
+    height: 70px
+    width: 70px
+    @include box_shadow(2)
 
   &__header
     margin-left: 70px

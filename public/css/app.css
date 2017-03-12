@@ -41,13 +41,24 @@ body {
   width: calc(100% - 16px);
   padding: 8px;
   position: relative; }
+  .card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%; }
   .card__image {
-    height: 70px;
-    width: 70px; }
+    height: 100%;
+    width: 100%; }
   .card__avatar {
     position: absolute;
     left: -20px;
-    top: -20px; }
+    top: -20px;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .card__header {
     margin-left: 70px; }
   .card__title--primary {

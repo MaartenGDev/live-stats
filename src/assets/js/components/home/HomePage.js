@@ -67,6 +67,7 @@ class HomePage extends React.Component {
                 <section className="card" key={index}>
                     <section className="card__avatar">
                         <img className="card__image" src={"/api/v1/avatars/" + user.uuid}/>
+                        <section className="card__overlay"></section>
                     </section>
                     <section className="card__header">
                         <h2 className="card__title card__title--primary">{user.name}</h2>
